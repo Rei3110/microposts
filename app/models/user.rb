@@ -39,14 +39,14 @@ class User < ApplicationRecord
   end
   
   ##favorites関連
-  def favo(other_micropost)
+  def favo(other_micropost, other_user)
     unless self == other_micropost
-    self.favorites.find_or_create_by(micropost_id: other_micropost.id)
+    self.favorites.find_or_create_by(micropost_id: other_micropost.id, user_id: other_user.id)
     end
   end
 
-  def unfavo(other_micropost)
-    favorite = self.favorites.find_by(micropost_id: other_micropost.id)
+  def unfavo(other_micropost, other_user)
+    favorite = self.favorites.find_by(micropost_id: other_micropost.id, user_id: other_user.id)
     favorite.destroy if favorite
   end
 

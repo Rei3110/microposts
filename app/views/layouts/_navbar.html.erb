@@ -28,6 +28,11 @@
                   </li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+                
+                <li role="separator" class="divider"></li>
+                <li><%= link_to 'favorites', fms_user_path(current_user), method: :get %></li>
+                
+                
                 </ul>
               </li>
               <% else %>
